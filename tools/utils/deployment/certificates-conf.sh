@@ -90,6 +90,15 @@ fi
 
 # 1. Generate certificates
 if $DO_CERT; then
+  # Ensure required files exist before proceeding
+  if [[ ! -x "$CERT_TOOL" ]]; then
+    echo "Error: Certificate tool '$CERT_TOOL' not found or not executable." >&2
+    exit 1
+  fi
+  if [[ ! -f "$CONFIG_FILE" ]]; then
+    echo "Error: Configuration file '$CONFIG_FILE' not found." >&2
+    exit 1
+  fi
   echo "Generating certificates"
   bash $CERT_TOOL -A
 fi
@@ -102,7 +111,7 @@ if $DO_COPY; then
     echo "Copying certificates for indexer: $node -> config/$dir_name/certs/"
     mkdir -p "./config/$dir_name/certs"
     cp "$OUTPUT_DIR/${node}"* "./config/$dir_name/certs/"
-    cp "$OUTPUT_DIR"/root-ca* "./config/$dir_name/certs/"
+    cp "$OUTPUT_DIR"/root-ca.pem "./config/$dir_name/certs/"
     if $FIRST_INDEXER; then
       cp "$OUTPUT_DIR"/admin* "./config/$dir_name/certs/"
       FIRST_INDEXER=false
@@ -114,7 +123,7 @@ if $DO_COPY; then
     echo "Copying certificates for manager: $node -> config/$dir_name/certs/"
     mkdir -p "./config/$dir_name/certs"
     cp "$OUTPUT_DIR/${node}"* "./config/$dir_name/certs/"
-    cp "$OUTPUT_DIR"/root-ca* "./config/$dir_name/certs/"
+    cp "$OUTPUT_DIR"/root-ca.pem "./config/$dir_name/certs/"
   done
 
   for node in "${DASHBOARD_NODES[@]}"; do
@@ -122,7 +131,7 @@ if $DO_COPY; then
     echo "Copying certificates for dashboard: $node -> config/$dir_name/certs/"
     mkdir -p "./config/$dir_name/certs"
     cp "$OUTPUT_DIR/${node}"* "./config/$dir_name/certs/"
-    cp "$OUTPUT_DIR"/root-ca* "./config/$dir_name/certs/"
+    cp "$OUTPUT_DIR"/root-ca.pem "./config/$dir_name/certs/"
   done
 fi
 

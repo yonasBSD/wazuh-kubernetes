@@ -202,19 +202,16 @@ secretGenerator:
       - config/indexer/certs/admin.pem
       - config/indexer/certs/indexer-key.pem
       - config/indexer/certs/indexer.pem
-      - config/indexer/certs/root-ca.key
       - config/indexer/certs/root-ca.pem
   - name: dashboard-certs
     files:
       - config/dashboard/certs/dashboard-key.pem
       - config/dashboard/certs/dashboard.pem
-      - config/dashboard/certs/root-ca.key
       - config/dashboard/certs/root-ca.pem
   - name: manager-certs
     files:
       - config/manager/certs/manager-key.pem
       - config/manager/certs/manager.pem
-      - config/manager/certs/root-ca.key
       - config/manager/certs/root-ca.pem
 ```
 
@@ -439,19 +436,16 @@ secretGenerator:
       - config/indexer/certs/admin.pem
       - config/indexer/certs/indexer-key.pem
       - config/indexer/certs/indexer.pem
-      - config/indexer/certs/root-ca.key
       - config/indexer/certs/root-ca.pem
   - name: dashboard-certs
     files:
       - config/dashboard/certs/dashboard-key.pem
       - config/dashboard/certs/dashboard.pem
-      - config/dashboard/certs/root-ca.key
       - config/dashboard/certs/root-ca.pem
   - name: manager-certs
     files:
       - config/manager/certs/manager-key.pem
       - config/manager/certs/manager.pem
-      - config/manager/certs/root-ca.key
       - config/manager/certs/root-ca.pem
 ```
 
