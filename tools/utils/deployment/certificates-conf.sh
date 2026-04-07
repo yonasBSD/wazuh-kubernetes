@@ -91,7 +91,7 @@ fi
 # 1. Generate certificates
 if $DO_CERT; then
   # Ensure required files exist before proceeding
-  if [[ ! -x "$CERT_TOOL" ]]; then
+  if [[ ! -f "$CERT_TOOL" ]]; then
     echo "Error: Certificate tool '$CERT_TOOL' not found or not executable." >&2
     exit 1
   fi

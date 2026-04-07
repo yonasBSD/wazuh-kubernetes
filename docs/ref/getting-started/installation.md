@@ -189,7 +189,7 @@ nodes:
 **3.1.3 Run the Wazuh certificates tool script**:
 
 ```bash
-bash wazuh-certs-tool.sh -A
+sudo bash ../tools/utils/deployment/certificates-conf.sh --cert --copy --priv
 ```
 
 The required certificates are imported via secretGenerator on the `kustomization.yml` file:
@@ -415,7 +415,7 @@ nodes:
 Run `wazuh-certs-tool.sh` to create the certificates.
 
 ```bash
-bash wazuh-certs-tool.sh -A
+sudo bash ../tools/utils/deployment/certificates-conf.sh --cert --copy --priv
 ```
 
 Return to the root of the repository.
